@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Regalos - Carla & Horacio</title>
+    <link rel="stylesheet" href="./style.css?v=1.1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header short">
+            <div class="header-content">
+                <h1>Lista de Regalos</h1>
+                <h2>Carla & Horacio</h2>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="separador">
+                <div class="linea"></div>
+                <div class="flor">❦</div>
+                <div class="linea"></div>
+            </div>
+
+            <h3>Nuestro futuro hogar</h3>
+            <p>Gracias por querer formar parte de nuestro nuevo comienzo. Estos son algunos artículos que nos ayudarán a
+                construir nuestro primer hogar juntos. La lista está a modo de guía, Si nos querés regalar algo que no
+                está dentro podés hacerlo sin problema. </p>
+
+            <div id="lista-regalos" class="lista-regalos">
+                <!-- Los elementos de regalo se generarán dinámicamente aquí -->
+            </div>
+
+            <div class="separador">
+                <div class="linea"></div>
+                <div class="flor">❦</div>
+                <div class="linea"></div>
+            </div>
+
+            <p>Si deseas regalar alguno de los artículos disponibles, por favor contáctanos para coordinar.</p>
+
+            <a href="index.html" class="boton secundario" style="margin-left: 10px;">Volver a inicio</a>
+        </div>
+
+        <footer>
+            <p>Carla & Horacio | 22 de Mayo de 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Datos de los regalos
+        const listaRegalos = [
+            {
+                nombre: "Juego de Ollas",
+                descripcion: "Juego de ollas para cocina",
+                icono: "fas fa-blender",
+                estado: "disponible"
+            },
+            {
+                nombre: "Vasos",
+                descripcion: "Juego de vasos de vidrio",
+                icono: "fas fa-glass-whiskey",
+                estado: "disponible"
+            },
+            {
+                nombre: "Tazas",
+                descripcion: "Juego de tazas para café/té",
+                icono: "fas fa-mug-hot",
+                estado: "disponible"
+            },
+            {
+                nombre: "Sábanas 2 plazas",
+                descripcion: "Juego de sábanas para cama matrimonial",
+                icono: "fas fa-bed",
+                estado: "disponible"
+            },
+            {
+                nombre: "Bols",
+                descripcion: "Bols para cocina / ensaladeras",
+                icono: "fas fa-utensils",
+                estado: "disponible"
+            },
+            {
+                nombre: "Tuppers",
+                descripcion: "Set de recipientes herméticos",
+                icono: "fas fa-box",
+                estado: "disponible"
+            },
+            {
+                nombre: "Manteles",
+                descripcion: "Manteles para mesa de comedor",
+                icono: "fas fa-table",
+                estado: "disponible"
+            },
+            {
+                nombre: "Tender",
+                descripcion: "Tender plegable para colgar ropa",
+                icono: "fas fa-tshirt",
+                estado: "disponible"
+            }
+        ];
+
+        // Función para crear un elemento de regalo
+        function crearElementoRegalo(regalo) {
+            const itemRegalo = document.createElement('div');
+            itemRegalo.className = 'item-regalo';
+
+            // Agregamos el div del icono
+            const iconoDiv = document.createElement('div');
+            iconoDiv.className = 'icono-regalo';
+            const iconoI = document.createElement('i');
+            iconoI.className = regalo.icono || 'fas fa-gift';
+            iconoDiv.appendChild(iconoI);
+
+            const nombre = document.createElement('h4');
+            nombre.textContent = regalo.nombre;
+
+            const descripcion = document.createElement('p');
+            descripcion.textContent = regalo.descripcion;
+
+            // const precio = document.createElement('p');
+            // precio.className = 'precio';
+            // precio.textContent = regalo.precio;
+
+            // const estado = document.createElement('div');
+            // estado.className = `estado ${regalo.estado}`;
+            // estado.textContent = regalo.estado.charAt(0).toUpperCase() + regalo.estado.slice(1);
+
+            itemRegalo.appendChild(iconoDiv);
+            itemRegalo.appendChild(nombre);
+            itemRegalo.appendChild(descripcion);
+            //itemRegalo.appendChild(precio);
+            // itemRegalo.appendChild(estado);
+
+            return itemRegalo;
+        }
+
+        // Función para renderizar todos los regalos
+        function renderizarListaRegalos() {
+            const contenedor = document.getElementById('lista-regalos');
+            contenedor.innerHTML = ''; // Limpiar el contenedor
+
+            listaRegalos.forEach(regalo => {
+                const elemento = crearElementoRegalo(regalo);
+                contenedor.appendChild(elemento);
+            });
+        }
+
+        // Inicializar la lista de regalos al cargar la página
+        document.addEventListener('DOMContentLoaded', renderizarListaRegalos);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+:root {
+    --bg-color: #FFF9FA;
+    --text-color: #5D4037;
+    --gold: #B8860B;
+    --rose-soft: #FCE4EC;
+    --rose-old: #E197A9;
+    --rose-border: #F8BBD0;
+    --white: #FFFFFF;
+    --shadow: rgba(184, 134, 11, 0.2);
+    --shadow-soft: rgba(0, 0, 0, 0.05);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+/* Header & Sections */
+.header {
+    background-color: var(--rose-soft);
+    background-image: linear-gradient(rgba(252, 228, 236, 0.5), rgba(252, 228, 236, 0.5)), url('/api/placeholder/1600/900');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.header.short {
+    height: 40vh;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(252, 228, 236, 0.3);
+}
+
+.header-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 20px var(--shadow);
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Typography */
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2rem;
+    font-style: italic;
+    margin: 10px 0;
+    color: var(--rose-old);
+}
+
+h3 {
+    font-size: 2.2rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Components */
+.fecha-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--text-color);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 5px 20px;
+    display: inline-block;
+}
+
+.contador-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.contador-item {
+    background: var(--white);
+    border: 1px solid var(--rose-border);
+    padding: 20px;
+    min-width: 80px;
+    box-shadow: 0 4px 6px var(--shadow-soft);
+}
+
+.contador-item span {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--rose-old);
+    font-weight: bold;
+}
+
+.separador {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separador .linea {
+    height: 1px;
+    background-color: var(--rose-old);
+    flex-grow: 1;
+    max-width: 100px;
+    margin: 0 15px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--gold);
+    color: var(--white) !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+.boton.secundario {
+    background-color: var(--rose-old);
+}
+
+.boton.secundario:hover {
+    background-color: var(--gold);
+}
+
+/* Cards & Grid */
+.regalo-opciones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.opcion-regalo,
+.item-regalo {
+    background: var(--white);
+    border: 1px solid var(--rose-border);
+    border-radius: 8px;
+    padding: 30px 20px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.4s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.opcion-regalo::before,
+.item-regalo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--rose-old);
+    transition: background-color 0.4s ease;
+}
+
+.opcion-regalo:hover,
+.item-regalo:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 20px rgba(184, 134, 11, 0.15);
+}
+
+.opcion-regalo:hover::before,
+.item-regalo:hover::before {
+    background-color: var(--gold);
+}
+
+.icono-regalo {
+    font-size: 2.5rem;
+    color: var(--rose-old);
+    margin-bottom: 15px;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.item-regalo:hover .icono-regalo {
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+.item-regalo h4 {
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.item-regalo p {
+    font-size: 1.1rem !important;
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+.lista-regalos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* Images & Footer */
+.img-boda {
+    width: 100%;
+    max-width: 300px;
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+footer {
+    background-color: var(--rose-soft);
+    padding: 40px;
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    border: 2px solid var(--gold);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+}
